@@ -41,7 +41,7 @@ export class TaskController {
         const task = await this.taskService.getTask(id);
 
         if (!task) {
-            throw new NotFoundException(`Ressource id : ${id} doesn't exist`)
+            throw new NotFoundException()
         }
 
         return this.taskService.getTask(id);
@@ -53,7 +53,7 @@ export class TaskController {
         const taskDeleted = await this.taskService.delete(id);
 
         if (taskDeleted.affected !== 1) {
-            throw new NotFoundException(`Ressource id : ${id} doesn't exist`)
+            throw new NotFoundException()
         }
         return { message: `Ressource id  : ${id} deleted` };
     }
