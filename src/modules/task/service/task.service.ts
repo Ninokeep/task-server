@@ -12,7 +12,8 @@ export class TaskService {
     constructor(@InjectRepository(Task) private taskRepository: Repository<Task>) { }
 
     async create(task: CreateTaskDto): Promise<TaskDto> {
-        const taskEntity = await this.taskRepository.create(task);
+        const taskEntity = this.taskRepository.create(task);
+
         taskEntity.validated = false;
         await this.taskRepository.save(taskEntity);
         return taskEntity;
