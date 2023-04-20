@@ -11,5 +11,5 @@ export class UpdateTaskDto {
     readonly description: string;
     @IsBoolean()
     @IsOptional()
-    readonly validate: boolean;
+    readonly validated: boolean;
 }
